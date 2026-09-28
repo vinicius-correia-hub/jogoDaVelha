@@ -9,13 +9,13 @@ let jogador1
 let jogador2
 const idsTabuleiro = ["00", "01", "02", "10", "11", "12", "20", "21", "22"];
 
-let combinacoes = [
+let combinacoes = [ //são as combinações possíveis para ganhar
     ["00", "01", "02"], ["10", "11", "12"], ["20", "21", "22"], //linhas
     ["00", "10", "20"], ["01", "11", "21"], ["02", "12", "22"], //colunas
     ["00", "11", "22"], ["02", "11", "20"] //diagonais
 ]
 
-window.onload = function(){
+window.onload = function(){ //requisição dos nomes dos jogadores e nome do jogador que irá iniciar a partida
     jogador1 = prompt("Informe o nome do jogador 1 (O):");
     jogador2 = prompt("Informe o nome do jogadr 2 (X):");
     document.getElementById("jogador1").innerText = `${jogador1}`;
@@ -23,7 +23,7 @@ window.onload = function(){
     document.getElementById("vez").innerText = `Vez do jogador ${jogador1}`
 }
 
-function config(){
+function config(){ //adicionar event listeners para cada um dos campos do jogo da velha e também o botão "jogar novamente"
 
     idsTabuleiro.forEach(id =>{
         document.getElementById(id).addEventListener("click", swap)
@@ -33,7 +33,7 @@ function config(){
 }
 
 
-function swap(){
+function swap(){ //
 
     if(!jogoAtivo)
         return
@@ -85,8 +85,8 @@ function swap(){
 
 }
 
-function verificarVitoria(jogadasDoJogador){
-
+function verificarVitoria(jogadasDoJogador){ //verifica as jogadas de um dos jogadores. 
+                                             //compara jogadas com as combinações setadas no inicio 
     for(let i = 0; i < combinacoes.length; i++){
         let combo = combinacoes[i];
 
@@ -108,7 +108,7 @@ function verificarVitoria(jogadasDoJogador){
 
 }
 
-function reset(){
+function reset(){ //reseta o jogo 
     document.getElementById("vez").innerText = `Vez do jogador ${jogador1}`;
 
     idsTabuleiro.forEach(id =>{
