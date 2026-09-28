@@ -33,7 +33,10 @@ function config(){ //adicionar event listeners para cada um dos campos do jogo d
 }
 
 
-function swap(){ //
+function swap(){ //troca a imagem vazia pela imagem do respectivo jogador. 
+                 //verifica se o jogador venceu através da chamada da função verificarVitoria
+                 //troca de um jogador para outro
+                 //verificação de empate
 
     if(!jogoAtivo)
         return
